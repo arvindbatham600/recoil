@@ -1,20 +1,25 @@
 import { useRecoilValue } from "recoil";
 import { todos } from "../store/atoms";
+import { filteredList } from "../store/selectors";
 
 const TodosRender = () => {
   const todoList = useRecoilValue(todos);
-  console.log(todoList);
+  const todoFilteredList = useRecoilValue(filteredList);
   return (
     <>
       <div>
-        {todoList.length > 0 ? (
+        {todoFilteredList.length > 0 ? (
+          <ul>
+            {todoFilteredList.map((todo) => (
+              <li key={todo.id}>{todo.text}</li>
+            ))}
+          </ul>
+        ) : (
           <ul>
             {todoList.map((todo) => (
               <li key={todo.id}>{todo.text}</li>
             ))}
           </ul>
-        ) : (
-          <div> No List Available</div>
         )}
       </div>
     </>

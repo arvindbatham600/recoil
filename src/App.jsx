@@ -5,6 +5,7 @@ import './App.css'
 import TodosInput from './components/TodosInput'
 import TodosRender from './components/TodosRender'
 import { RecoilRoot } from 'recoil'
+import FilterBox from './components/FilterBox'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <>
       <RecoilRoot>
         <TodosInput />
+        <FilterBox />
         <TodosRender />
       </RecoilRoot>
     </>
